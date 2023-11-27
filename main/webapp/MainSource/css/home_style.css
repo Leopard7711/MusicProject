@@ -1,0 +1,35 @@
+
+.main-intro{
+    text-align: center;
+}
+.main-intro img{
+    border-radius: 30px;
+    display: inline-block;
+}
+
+
+.album-container{
+    text-align: left;
+    
+}
+.album-container h4{
+    margin-top: 15px;
+}       
+.album-container p{
+    font-size: 18px;
+    color: #ECDBBA;
+}
+.album-text-container {
+    align-self: flex-start; /* 텍스트 컨테이너를 왼쪽으로 정렬 */
+    position: relative;
+    top: 5%; /* 이미지와 텍스트 간격 조정 */
+    left: 5%;
+    width: 85%;
+}
+.album-container img{
+    width: 85%;
+    border-radius: 15px;
+}
+.album{
+	margin-bottom: 20px;
+}

@@ -1,0 +1,34 @@
+
+.join-button-group #btn-join{
+	  background-color:#ECDBBA;
+	  margin:0;
+	}
+.join-button-group #btn-goto-login{
+	  
+	  background-color:#ECDBBA;
+	  
+	}
+.join-button-group #btn-exit{
+	  
+	  background-color:#F15A59;
+	  
+	}
+.join-button-group{
+	display: flex;
+	justify-content: space-between;
+}
+.join-button-group button {
+    flex-grow: 1; /* 버튼들이 가능한 한 넓게 확장되도록 함 */
+    margin-right: 10px; /* 버튼 사이의 간격을 조절 */
+    text-align: center;
+}
+
+.join-form-group {
+	display: flex; 
+	justify-content: flex-end;
+	
+}
+.join-form p{
+	font-size: 14px;
+}
+

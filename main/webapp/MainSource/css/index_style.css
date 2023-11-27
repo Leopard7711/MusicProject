@@ -1,0 +1,279 @@
+/* 디버그 */
+#changeStyleButton {
+    position: absolute;
+    top: -9vh;
+    left: -100px;
+    
+  }
+
+/* 바디 */
+body {
+     background-color: #191919;
+    font-family: 'LINESeedKR-Bd', sans-serif;
+    color: #ffffff;
+    font-size: 24px;
+    margin: 9vh 100px 9vh 100px;
+     /* 화면 높이에 맞춤 */
+   	overflow: hidden;
+   	
+}
+
+
+
+/* 사이드바 */
+.sidebar-left .nav-link {
+    color: #ffffff;
+ 
+   /* 변경하고 싶은 색상 코드 */
+}
+
+.sidebar-left {
+    background-color: #313131;
+    border-radius: 30px;
+    height: 75vh;
+    /* 원하는 색상 코드로 변경 */
+}
+.sidebar-left .nav-link:hover {
+    color: #ffffff; /* 마우스 오버 시 색상 */
+}
+
+.sidebar-user-info img{
+    display: block; /* 블록 레벨 요소로 만들기 */
+    margin: 0 auto; /* 상하 마진 0, 좌우 자동으로 중앙 정렬 */
+    width: 50%; /* 원하는 크기로 조정 */
+    border-radius: 50%; /* 원형 이미지로 만들기 */
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+#logined-user-name:hover {
+        color: #C84B31; /* 원하는 색상으로 변경하세요 */
+}
+#greeting{
+	margin-top: 2%;
+}
+
+.sidebar-user-info h5{
+	
+    margin-bottom: 10%;
+}
+.sidebar-user-info button{
+	background-color: transparent;
+    margin-right: 40px;
+    border: none;
+}
+.sidebar-user-info i{
+	color: white;
+}
+
+.sidebar-menu li{
+    margin-bottom: 30px;
+
+}
+
+.sidebar-menu a{
+    text-align: center;
+    display: inline;
+    font-size: 1em;
+}
+
+.sidebar-menu a.active {
+color: #C84B31 !important;
+}
+.sidebar-menu i.active {
+    color: #C84B31 !important;
+    }
+.sidebar-menu i{
+    margin-left: 50px;
+}
+
+.sidebar-music-player{
+    background-color: #313131;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    max-height: 75vh;
+}
+
+
+#playing-music-img{
+	border-radius: 20px;
+	margin:0;
+}
+.sidebar-music-player .d-flex {
+    margin-bottom: 5%; /* 이미지와 오디오 컨트롤 간 간격 */
+}
+.sidebar-music-player audio {
+    
+    width: 80%; /* 오디오 플레이어의 너비 */
+    border-radius: 15px;/* 배경색 변경 */
+}
+.sidebar-music-info h3{
+   
+    text-align: center;
+    font-size: 18px;
+    
+}
+.sidebar-music-info h1{
+    
+    text-align: center;
+    font-size: 24px;
+}
+
+#playing-music-img-plate{
+	width: 100px;
+	height: 100px;
+}
+
+.playing {
+    background-color:rgb(157, 60, 38) !important; /* 원하는 색상 코드 */
+}
+
+/* 여기 리스트 */
+#music-user-list {
+    max-height: 100%;
+    overflow-y: auto; /* 필요한 경우 스크롤 활성화 */
+    border-radius: 15px;
+    width: 80%;
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    height :18vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.music-user-list-item {
+    background-color: #C84B31;
+    border-radius: 15px;
+    margin:10px;
+    height: 60px;
+    
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+.music-user-list-item p {
+    color: white;
+    font-size: 16px;
+    
+    margin: 0 10px;
+}
+.music-user-list-item i {
+	margin:0 20px;
+	cursor: pointer;
+}
+
+/* 여기 리스트 이름*/
+
+#music-user-list-name {
+    width: 80%;
+    margin-left: 10%;
+    height: 3%;
+}
+
+#music-user-list-name i {
+    font-size: 36px;
+    cursor: pointer;
+}
+
+#music-user-list-currentname {
+    margin-top: .5vh; /* 기존의 5% 마진 제거 */
+    margin-bottom: 0; /* 텍스트의 기본 마진 제거 */
+    display: flex; /* Flexbox를 활용 */
+    align-items: center;
+   	font-size: 30px;
+}
+
+#music-user-list-span {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+#music-user-list-span i {
+    margin-left: 10px; /* 아이콘과 텍스트 사이 간격 조정 */
+}
+/* 내브바 */
+.navbar {
+    padding: 0;
+    margin-bottom: 2vh;
+    height: 5vh;
+   
+}
+
+.btn-outline-secondary {
+    background-color: #C84B31; /* 어두운 회색 */
+    border-color: #C84B31; /* 경계선 색상 */
+    color: white; /* 글자 색상 */
+  }
+
+/* 커스텀 */
+
+/* 메인 */
+.mainsection {
+    overflow-y: auto; /* 메인 섹션에서만 스크롤 활성화 */
+    max-height: 75vh;
+    
+}
+.mainsection div{
+	border-radius: 30px;
+	
+}
+
+
+::-webkit-scrollbar {
+    width: 10px; /* 스크롤바의 너비 조정 */
+}
+
+/* 스크롤바 트랙 (바탕) 스타일 */
+::-webkit-scrollbar-track {
+    background: #191919; /* 트랙의 배경 색상 */
+}
+
+/* 스크롤바 핸들 (움직이는 부분) 스타일 */
+::-webkit-scrollbar-thumb {
+    background: #888; /* 핸들의 배경 색상 */
+    border-radius: 5px; /* 핸들의 둥근 모서리 */
+}
+
+/* 스크롤바 핸들 : 호버 상태 */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* 호버 시 핸들의 배경 색상 */
+}
+
+
+/*디자인 지우기*/
+.no-button-design{
+  	border: 0;
+	background-color: transparent;
+	color: #ffffff 
+}
+
+/* Float */
+.float-left{
+	float: left;
+    
+}
+.float-right{
+	float: right;
+}
+.float-none{
+	clear: both;
+}
+
+
+/* 폰트 */
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* a */
+a, a:visited, a:hover, a:active {
+    color: #ffffff !important; /* 원하는 색상으로 변경 */
+}
