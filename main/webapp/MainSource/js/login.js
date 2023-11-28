@@ -137,8 +137,8 @@ function login() {
     });
 
     
-	//@
-    fetch('/LoginCon', {
+
+    fetch('/MusicProject/LoginCon', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json' // 헤더에 Content-Type 설정
@@ -180,8 +180,7 @@ function join(){
         password: _password
     });
 	console.log(data);
-	//@
-    fetch('/JoinCon', {
+    fetch('/MusicProject/JoinCon', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json' // 헤더에 Content-Type 설정

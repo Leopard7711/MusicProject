@@ -7,8 +7,7 @@
 	
     <meta charset="UTF-8">
     <title>My Bootstrap Page</title>
-    <!-- @ -->
-    <base href="/MainSource/">
+    <base href="/MusicProject/MainSource/">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index_style.css">
     <link rel="stylesheet" href="css/home_style.css">

@@ -24,7 +24,7 @@ public class LogoutCon extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("MainSource/index.jsp");
 		dispatcher.forward(request, response);
 	}
 }

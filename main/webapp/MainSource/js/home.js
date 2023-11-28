@@ -1,7 +1,7 @@
 
 function fetchMusicList() {
-		//@
-        fetch('/UserMusicListGetCon?userId=admin&listName=best')
+		
+        fetch('/MusicProject/UserMusicListGetCon?userId=admin&listName=best')
         .then(response => response.json())
         .then(data => {
             const albumContainer = document.querySelector('.album-container');

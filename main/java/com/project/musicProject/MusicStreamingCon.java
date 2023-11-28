@@ -35,7 +35,7 @@ public class MusicStreamingCon extends HttpServlet {
 	        if (music != null) {
 	           
 	            // 클라이언트에 반환할 스트리밍 URL 구성
-	            String streamingUrl = request.getContextPath() + "music/mp3/" + music.getUrl() + ".mp3";
+	            String streamingUrl = request.getContextPath() + "/MainSource/music/mp3/" + music.getUrl() + ".mp3";
 	            System.out.print(streamingUrl);
 	            // MusicDTO 데이터를 JSONObject에 추가
 	            JSONObject musicJson = new JSONObject();
