@@ -46,7 +46,8 @@
                 
             </div>
     
-            <!-- 오른쪽 아이콘 -->
+            <!-- 오른쪽 아
+            이콘 -->
             <div>
                 <i class="fa-solid fa-triangle-exclamation pe-3"></i>
                 <i class="fa-solid fa-gear pe-3"></i>
