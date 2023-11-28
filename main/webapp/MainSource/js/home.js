@@ -1,6 +1,6 @@
 
 function fetchMusicList() {
-		//test
+		//laptoptest
         fetch('/MusicProject/UserMusicListGetCon?userId=admin&listName=best')
         .then(response => response.json())
         .then(data => {
