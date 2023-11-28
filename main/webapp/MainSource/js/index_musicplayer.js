@@ -30,7 +30,7 @@ function playMusic(){
 function loadMusic(music,listItem,playNow = false){
     
     
-    fetch('/MusicProject/MusicStreamingCon?id='+music.id)
+    fetch('/MusicStreamingCon?id='+music.id)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

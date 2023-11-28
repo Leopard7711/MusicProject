@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 function getUserInfo() {
-    return fetch('/MusicProject/MemberInfoGetCon')
+    return fetch('/MemberInfoGetCon')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');

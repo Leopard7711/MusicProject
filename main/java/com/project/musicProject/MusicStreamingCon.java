@@ -33,10 +33,10 @@ public class MusicStreamingCon extends HttpServlet {
 	        MusicDTO music = musicDao.getMusicById(musicId);
 
 	        if (music != null) {
-	           
+	        	System.out.print(request.getContextPath());
 	            // 클라이언트에 반환할 스트리밍 URL 구성
-	            String streamingUrl = request.getContextPath() + "/MainSource/music/mp3/" + music.getUrl() + ".mp3";
-	            System.out.print(streamingUrl);
+	            String streamingUrl = "music/mp3/" + music.getUrl() + ".mp3";
+	            
 	            // MusicDTO 데이터를 JSONObject에 추가
 	            JSONObject musicJson = new JSONObject();
 	            musicJson.put("id", music.getId());
