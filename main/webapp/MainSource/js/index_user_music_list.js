@@ -8,8 +8,8 @@ let listNames = [];
 function getUserMusicList(userId,listName) {
 	
 	
-	
-    fetch(`/MusicProject/UserMusicListGetCon?userId=${userId}&listName=${listName}`)
+	//@
+    fetch(`/UserMusicListGetCon?userId=${userId}&listName=${listName}`)
     .then(response => response.json())
     .then(data => {
         const musicList = document.getElementById('music-user-list');
@@ -114,7 +114,8 @@ function createMusicListItem(music) {
 }
 // 검색 !!!!!!
 function searchUserMusicList(userId) {
-    fetch(`/MusicProject/UserMusicListSearchCon?userId=${userId}`)
+	//@
+    fetch(`/UserMusicListSearchCon?userId=${userId}`)
     .then(response => response.json())
     .then(names => {
         listNames = names; 
@@ -142,7 +143,8 @@ function updateCurrentListName() {
 // 삭제!!!!!!
 function deleteMusicFromList(userId, listName, musicId) {
     // 서버에 삭제 요청을 보내는 fetch 호출
-    fetch(`/MusicProject/UserMusicListRemoveCon?userId=${userId}&listName=${listName}&musicId=${musicId}`, {
+    //@
+    fetch(`/UserMusicListRemoveCon?userId=${userId}&listName=${listName}&musicId=${musicId}`, {
         method: 'GET'
     })
     .then(response => {
@@ -160,8 +162,8 @@ function insertToMusicList(musicId) {
 	if(!checkUserInfo()){
 		return false;
 	}
-		
-    fetch(`/MusicProject/UserMusicListInsertCon?userId=${userInfo.id}&listName=${currentListName}&musicId=${musicId}`, {
+		//@
+    fetch(`/UserMusicListInsertCon?userId=${userInfo.id}&listName=${currentListName}&musicId=${musicId}`, {
         method: 'POST'
     })
     .then(response => response.json())
