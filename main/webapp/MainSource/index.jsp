@@ -7,7 +7,8 @@
 	
     <meta charset="UTF-8">
     <title>My Bootstrap Page</title>
-    <base href="/MusicProject/MainSource/">
+    <!-- @ -->
+    <base href="/MainSource/">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index_style.css">
     <link rel="stylesheet" href="css/home_style.css">
@@ -46,7 +47,8 @@
                 
             </div>
     
-            <!-- 오른쪽 아이콘 -->
+            <!-- 오른쪽 아
+            이콘 -->
             <div>
                 <i class="fa-solid fa-triangle-exclamation pe-3"></i>
                 <i class="fa-solid fa-gear pe-3"></i>
