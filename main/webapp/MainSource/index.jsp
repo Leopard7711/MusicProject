@@ -60,7 +60,7 @@
                 <div class="sidebar-user-info">
                     <img src="img/user_icon.png" alt="User Photo" id="sidebar-user-photo">
 					<div id="logined-user-name" class="ms-5 float-left"></div>
-					<form id="logout-form" action="/MusicProject/LogoutCon" method="get" class="float-right">
+					<form id="logout-form" action="/LogoutCon" method="get" class="float-right">
 					    <button type="submit"><i class="fa-solid fa-right-from-bracket"></i></button>
 					</form>
 					
