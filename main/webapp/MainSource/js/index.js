@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("사용자 정보를 가져오는데 실패했습니다.");
         }
         InitUserSection();
+      
         document.dispatchEvent(userInfoLoadedEvent);
     })
     .catch(error => {
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // 모든 .nav-link 요소를 선택합니다.
       var navLinks = document.querySelectorAll('.nav-link');
       
+      
         navLinks.forEach(function(navLink) {
           navLink.addEventListener('click', function(event) {
             // 먼저 모든 링크와 관련된 i 태그에서 'active' 클래스를 제거합니다.
@@ -80,50 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     
 });
-function getUserInfo() {
-    return fetch('/MemberInfoGetCon')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    });
-}
 
-function checkUserInfo(){
-	if(userInfo!=null){
-		return true;
-	}
-	else{
-		alert("로그인을 해주세요");
-		return false;
-	}
 
-}
-
-function InitUserSection(){
-
-    var loginedUserName = document.getElementById("logined-user-name");
-    var logoutForm = document.getElementById("logout-form");
-    var greeting = document.getElementById("greeting");
-    var loginButton = document.getElementById("login-button");
-	
-    if (userInfo!=null) {
-        // userId가 null이 아닌 경우
-        loginedUserName.textContent = userInfo.id + "님";
-        logoutForm.style.display = "block";
-        greeting.textContent = "반갑습니다";
-        loginButton.style.display = "none";
-    } else {
-        // userId가 null인 경우
-        
-        loginedUserName.style.display = "none";
-        logoutForm.style.display = "none";
-        greeting.style.display = "none";
-        loginButton.style.display = "block";
-    }
-}
-	
 	
 function mainsectionFetch(contentUrl) {
 fetch(contentUrl)
@@ -132,9 +92,17 @@ fetch(contentUrl)
     })
     .then(function(data) {
         document.querySelector('.mainsection').innerHTML = data;
-        if (contentUrl === 'home.jsp') {
-            fetchMusicList(); 
-        }
+        console.log('sa');
+        switch(contentUrl){
+			case 'home.jsp':
+				fetchMusicList();
+				break;
+			case 'mypage.jsp':
+				
+				initMyPage();
+				break;
+		}
+        
     })
     .catch(function(error) {
         console.error('Error:', error);

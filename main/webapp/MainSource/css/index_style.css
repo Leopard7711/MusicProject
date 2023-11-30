@@ -40,7 +40,8 @@ body {
 .sidebar-user-info img{
     display: block; /* 블록 레벨 요소로 만들기 */
     margin: 0 auto; /* 상하 마진 0, 좌우 자동으로 중앙 정렬 */
-    width: 50%; /* 원하는 크기로 조정 */
+    width: 15vh; /* 원하는 크기로 조정 */
+    height: 15vh;
     border-radius: 50%; /* 원형 이미지로 만들기 */
     margin-bottom: 50px;
     margin-top: 50px;

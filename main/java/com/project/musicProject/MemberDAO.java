@@ -122,7 +122,7 @@ public class MemberDAO {
             dto.setEmail( rs.getString("email"));
             dto.setId( rs.getString("id"));
             dto.setPassword( rs.getString("password"));
-            
+            dto.setDatetime(rs.getTimestamp("datetime"));
             
             
             return dto;
@@ -133,7 +133,29 @@ public class MemberDAO {
         	JDBCUtil.close(rs, pstmt, conn);
         }
         
-    }		
+    }	
+    public boolean changePassword(String id, String newPassword) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        
+        try {
+            conn = JDBCUtil.getConnection();
+            String updateQuery = "UPDATE user_account SET password = ? WHERE id = ?";
+            System.out.print(updateQuery);
+            pstmt = conn.prepareStatement(updateQuery);
+            pstmt.setString(1, newPassword);
+            pstmt.setString(2, id);
+
+            int affectedRows = pstmt.executeUpdate();
+
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e);
+            return false;
+        } finally {
+            JDBCUtil.close(null, pstmt, conn);
+        }
+    }
     
 	
 

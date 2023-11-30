@@ -22,14 +22,17 @@ public class MemberInfoGetCon extends HttpServlet {
         
         
         MemberDTO dto= (MemberDTO)session.getAttribute("MemberDTO");
+        MemberDAO memberDao = new MemberDAO();
+        dto = memberDao.memberFind(dto.getId());
+        
         
         JSONObject json = new JSONObject();
         if (dto != null) {
-            
+        	session.setAttribute("MemberDTO", dto);
             json.put("id", dto.getId());
             json.put("email", dto.getEmail());
             json.put("password", dto.getPassword());
-            // 추가적으로 필요한 MemberDTO의 다른 필드들도 여기에 포함시키세요.
+            json.put("datetime", dto.getDatetime());
             json.put("result", "success");
             
         } else {
@@ -42,3 +45,27 @@ public class MemberInfoGetCon extends HttpServlet {
         response.getWriter().write(json.toString());
     }
 }
+//protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//    
+//    HttpSession session = request.getSession();
+//    String userId = request.getParameter("userId");
+//    MemberDAO memberDao = new MemberDAO();
+//    MemberDTO dto = memberDao.memberFind(userId);
+//
+//    JSONObject json = new JSONObject();
+//    if (dto != null) {
+//        session.setAttribute("MemberDTO", dto);
+//
+//        json.put("id", dto.getId());
+//        json.put("email", dto.getEmail());
+//        json.put("password", dto.getPassword());
+//        json.put("datetime", dto.getDatetime());
+//        json.put("result", "success");
+//    } else {
+//        json.put("result", "fail");
+//    }
+//
+//    response.setContentType("application/json");
+//    response.setCharacterEncoding("UTF-8");
+//    response.getWriter().write(json.toString());
+//}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.project.musicProject.MemberDTO"%>
-
+<%@ page import="java.io.File" %>
+<%@ page import="com.project.musicProject.MemberDTO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,8 @@
     <link rel="stylesheet" href="css/mypage_style.css">
     <script src="https://kit.fontawesome.com/19f16a6e82.js"></script>
     <script src="js/index.js"></script>
-    
+    <script src="js/mypage.js"></script>
+    <script src="js/user.js"></script>
     <script src="js/index_user_music_list.js"></script>
 	<script src="js/index_musicplayer.js"></script>
 	
@@ -58,7 +60,10 @@
         <div class="row">
             <aside class="debug col-md-2 sidebar-left"  >
                 <div class="sidebar-user-info">
-                    <img src="img/user_icon.png" alt="User Photo" id="sidebar-user-photo">
+                	
+       
+        			<img src="img/user_icon.png" alt="User Photo" id="sidebar-user-photo">
+    		
 					<div id="logined-user-name" class="ms-5 float-left"></div>
 					<form id="logout-form" action="/LogoutCon" method="get" class="float-right">
 					    <button type="submit"><i class="fa-solid fa-right-from-bracket"></i></button>
