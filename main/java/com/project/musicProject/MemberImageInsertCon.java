@@ -63,7 +63,9 @@ public class MemberImageInsertCon extends HttpServlet {
                 uploadPath=uploadPath+ "MainSource"+File.separator+"img"+File.separator+"user_image";
                 
                 File uploadDir = new File(uploadPath);
-                if (!uploadDir.exists()) 
+                if (!uploadDir.exists()) {
+                	uploadDir.mkdir();
+                }
                 System.out.println(uploadPath + File.separator + newFileName);
                 filePart.write(uploadPath + File.separator + newFileName);
 

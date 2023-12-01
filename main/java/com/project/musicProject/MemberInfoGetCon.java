@@ -22,12 +22,12 @@ public class MemberInfoGetCon extends HttpServlet {
         
         
         MemberDTO dto= (MemberDTO)session.getAttribute("MemberDTO");
-        MemberDAO memberDao = new MemberDAO();
-        dto = memberDao.memberFind(dto.getId());
-        
-        
         JSONObject json = new JSONObject();
         if (dto != null) {
+        	MemberDAO memberDao = new MemberDAO();
+            dto = memberDao.memberFind(dto.getId());
+            
+        	
         	session.setAttribute("MemberDTO", dto);
             json.put("id", dto.getId());
             json.put("email", dto.getEmail());
