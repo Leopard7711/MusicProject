@@ -1,7 +1,7 @@
 let userInfo=null;
 const userInfoLoadedEvent = new Event('userInfoLoaded');
 
-
+let currentContentUrl = '';
 document.addEventListener('DOMContentLoaded', function() {
     var menuLinks = document.querySelectorAll('.sidebar-menu-list');
 
@@ -40,13 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
     	});
 	}
 	
-	document.getElementById("changeStyleButton").addEventListener("click", function() {
-        var contents = document.querySelectorAll(".debug"); 
-        contents.forEach(function(content) {
-          content.style.border = "2px dashed red";
+	//document.getElementById("changeStyleButton").addEventListener("click", function() {
+      //  var contents = document.querySelectorAll(".debug"); 
+      //  contents.forEach(function(content) {
+      //    content.style.border = "2px dashed red";
           
-        });
-      });
+    //    });
+    //  });
 
  
       
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function changeMenuColor(menuId) {
     var navLinks = document.querySelectorAll('.nav-link');
 
-    // 모든 링크와 아이콘에서 'active' 클래스 제거
+    
     navLinks.forEach(function(navLink) {
         navLink.classList.remove('active');
         var icon = navLink.previousElementSibling;
@@ -67,7 +67,7 @@ function changeMenuColor(menuId) {
         }
     });
 
-    // menuId에 해당하는 메뉴 항목에 'active' 클래스 추가
+    
     if (menuId != null) {
         var currentMenu = document.getElementById(menuId);
         if (currentMenu) {
@@ -93,24 +93,32 @@ function homeButtonCick(){
 }
 	
 function mainsectionFetch(contentUrl) {
+	
+if(contentUrl==='mypage.jsp'&&userInfo.id==='admin'){
+	contentUrl='admin.jsp';
+	
+}
 fetch(contentUrl)
     .then(function(response) {
         return response.text();
     })
     .then(function(data) {
         document.querySelector('.mainsection').innerHTML = data;
-        console.log('sa');
+        
+        
         
         
    		menuIdName = null;
    		
         switch(contentUrl){
 			case 'home.jsp':
-				fetchMusicList();
+				clickAction='insert'
+				initHome();
 				menuIdName='home'
 				break;
 			case 'mypage.jsp':
 				menuIdName=null;
+				
 				initMyPage();
 				break;
 			case 'browse.jsp':
@@ -119,7 +127,7 @@ fetch(contentUrl)
 				menuIdName='browse'
 				break;
 			case 'playlist.jsp':
-				
+				clickAction='delete'
 				initPlaylist();
 				menuIdName='playlist'
 				break;
@@ -134,4 +142,7 @@ fetch(contentUrl)
     .catch(function(error) {
         console.error('Error:', error);
     });
+    
+   currentContentUrl=contentUrl;
 };
+

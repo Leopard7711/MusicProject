@@ -1,16 +1,20 @@
+let clickAction;
+
 function fetchUserMusicLists(userId) {
     fetch('/UserMusicListSearchCon?userId=' + userId)
         .then(response => response.json())
         .then(listNames => {
-            listNames.forEach(listName => {
-                fetchUserMusicListDetails(userId, listName);
-            });
+            listNames.reduce((promise, listName) => {
+                return promise.then(() => {
+                    return fetchUserMusicListDetails(userId, listName);
+                });
+            }, Promise.resolve());
         })
         .catch(error => console.error('Error fetching user music lists:', error));
 }
 
 function fetchUserMusicListDetails(userId, listName) {
-    fetch('/UserMusicListGetCon?userId=' + userId + '&listName=' + encodeURIComponent(listName))
+    return fetch('/UserMusicListGetCon?userId=' + userId + '&listName=' + encodeURIComponent(listName))
         .then(response => response.json())
         .then(musicList => {
             displayUserMusicList(musicList, listName);
@@ -22,7 +26,6 @@ function initPlaylist(){
 	
 	if(userInfo == null){
 		alert("로그인을 해주세요");
-		mainsectionFetch('home.jsp');
 		homeButtonCick();
 		return;
 	}
@@ -30,6 +33,8 @@ function initPlaylist(){
 	parent.innerHTML='';
 	
 	fetchUserMusicLists(userInfo.id);
+	
+	
 }
 
 
@@ -84,7 +89,13 @@ function createPlaylistMusicElement(music,listName) {
         colDiv.className = 'album col-md-3 d-flex flex-column align-items-center';
 
 		colDiv.addEventListener('click', () => {
-       		deleteMusicAtPlaylist(music.id,listName);
+			if(clickAction==='delete'){
+				deleteMusicAtPlaylist(music.id,listName);
+			}
+			else if(clickAction==='insert'){
+				insertToMusicList(music.id,listName,clickAction);
+			}
+       		
    		});
 
         const img = document.createElement('img');

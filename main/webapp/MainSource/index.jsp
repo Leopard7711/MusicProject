@@ -45,11 +45,11 @@
                 </div>
             </div>
     
-            <!-- 중앙 버튼 -->
+            <!-- 중앙 버튼 
             <div class="d-flex justify-content-center ">
                 <button id="changeStyleButton" class="btn btn-secondary mr-2">보더 보이기</button>
                 
-            </div>
+            </div>-->
     
             <!-- 오른쪽 아
             이콘 -->

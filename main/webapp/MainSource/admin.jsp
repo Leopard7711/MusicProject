@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<div class="my-page pt-5 ps-5 pe-5">
+	
+	
+	</div>
 </body>
 </html>

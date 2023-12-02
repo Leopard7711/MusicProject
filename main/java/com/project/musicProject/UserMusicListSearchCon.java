@@ -26,8 +26,9 @@ public class UserMusicListSearchCon extends HttpServlet {
         JSONArray jsonArray = new JSONArray();
         for (String listName : listNames) {
             jsonArray.put(listName);
+            
         }
-
+        
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(jsonArray.toString());

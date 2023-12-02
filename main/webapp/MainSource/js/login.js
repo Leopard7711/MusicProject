@@ -126,7 +126,7 @@ function loadJoin(){
 }
 
 function login() {
-    console.log("loginFetch");
+    
     const id = document.getElementById("id-input").value;
     const password = document.getElementById("password-input").value;
 
@@ -153,9 +153,9 @@ function login() {
         return response.json();
     })
     .then(responseData => {
-        console.log(responseData.status);
+        
         if (responseData.status === "success") {
-            console.log("go to index.jsp");
+            
             window.location.href = "index.jsp";
         } else {
 			alert("로그인 정보가 올바르지 않습니다");
@@ -195,7 +195,7 @@ function join(){
         return response.json();
     })
     .then(responseData => {
-        console.log(responseData.status);
+       
         switch (responseData.status) {
 		  case "success":
 			    alert("가입되었습니다");

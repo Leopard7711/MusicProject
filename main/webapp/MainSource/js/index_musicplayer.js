@@ -76,7 +76,7 @@ function highlightPlayingItem(item) {
         previousPlayingItem.classList.remove('playing');
     }
 	
-    // 현재 재생 중인 항목에 하이라이트 추가
+    
     item.classList.add('playing');
 }
 
@@ -87,7 +87,7 @@ function playNextMusic() {
         if (nextItem) {
 			
             const nextMusic = JSON.parse(nextItem.dataset.music);
-            console.log(nextMusic); // nextItem에 music 데이터가 있어야 함
+            
             loadMusic(nextMusic,nextItem,true);
             
             

@@ -14,7 +14,7 @@
 .friend-list-li h3 {
     color: black;
     margin-right: auto; /* 제목과 버튼 사이의 간격 조정 */
-    margin-left: 40px; 
+    margin-left: 30px; 
     display: inline-block;
    	margin-top: auto;
     margin-bottom: auto;
@@ -45,10 +45,10 @@
 }
 
 .friend-list {
-    flex: 1; /* 두 리스트가 공간을 균등하게 차지하도록 함 */
-    background-color: #313131; /* 배경색 설정 */
-    color: white; /* 텍스트 색상 변경 */
-    padding: 20px 20px 5px 20px; /* 안쪽 여백 추가 */
-    border-radius: 10px; /* 모서리 둥글게 처리 */
+    flex: 1; 
+    background-color: #313131; 
+    color: white; 
+    padding: 10px 20px 5px 20px;
+    border-radius: 10px; 
     margin:0 20px ;
 }

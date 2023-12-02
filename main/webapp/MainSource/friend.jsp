@@ -10,7 +10,7 @@
 	<div id="sendFriendRequestDiv" class="my-4 mt-0 p-5">
 	    <h4>친구 요청 보내기</h4>
 	    <input type="text" id="friendIdInput" class="form-control" placeholder="친구의 ID 또는 이름">
-	    <button id="sendRequestButton" class="btn mt-3" style="background-color:#C84B31;">친구 요청 보내기</button>
+	    <button id="sendRequestButton" class="btn mt-4" style="background-color:#C84B31; color:white;">친구 요청 보내기</button>
 	</div>
 	<div class="friend-lists-container row"> 
         <div class="friend-list col-md-5">

@@ -4,7 +4,7 @@ function initFriend(){
 	
 	if(userInfo == null){
 		alert("로그인을 해주세요");
-		mainsectionFetch('home.jsp');
+		
 		homeButtonCick();
 		return;
 	}
@@ -112,6 +112,10 @@ function sendFriendRequest() {
         alert('친구 ID를 입력해주세요.');
         return;
     }
+     if (friendId===userInfo.id) {
+        alert('본인 ID를 입력하셨습니다');
+        return;
+    }
 	
     var formData = new URLSearchParams();
     formData.append('action', 'send');
@@ -129,7 +133,7 @@ function sendFriendRequest() {
     .then(data => {
         if (data.success) {
             alert('친구요청이 전송되었습니다');
-            // 추가적인 UI 업데이트 또는 알림
+            
         } else {
             alert('친구요청에 실패하였습니다:', data.error);
         }
@@ -167,7 +171,7 @@ function applyFriendRequest(friendId){
 	var formData = new URLSearchParams();
     formData.append('userId', userInfo.id);
     formData.append('friendId', friendId);
-	console.log(userInfo.id,friendId);
+	
     fetch('/FriendshipApplyCon', {
         method: 'POST',
         headers: {
@@ -195,7 +199,7 @@ function removeFriendShip(friendId){
 	var formData = new URLSearchParams();
     formData.append('userId', userInfo.id);
     formData.append('friendId', friendId);
-	console.log(userInfo.id,friendId);
+	
     fetch('/FriendshipRemoveCon', {
         method: 'POST',
         headers: {

@@ -9,7 +9,7 @@
     <div class="my-page pt-5 ps-5 pe-5">
         <div id="upload-form">
                 <input type="file" name="photo" accept="image/*" class="form-control mb-2" style="width: 30vh;">
-                <button id="upload-button" class="btn mt-2">사진 업로드</button>
+                <button id="upload-button" class="btn mt-2" style="color:white;">사진 업로드</button>
          </div>
 
             <h3 id="datetime" class=" mt-5"></h3>
@@ -18,7 +18,7 @@
                 <input type="password" name="currentPassword" placeholder="현재 비밀번호" required class="form-control mb-2" style="width: 30vh;">
                 <input type="password" name="newPassword" placeholder="새 비밀번호" required class="form-control mb-2" style="width: 30vh;">
                 <input type="password" name="confirmNewPassword" placeholder="새 비밀번호 확인" required class="form-control mb-2" style="width: 30vh;">
-                <button type="submit" class="btn mt-2">비밀번호 변경</button>
+                <button type="submit" class="btn mt-2" style="color:white;">비밀번호 변경</button>
             </form>
 			
             <button id="delete-account-button" class="btn mt-5" style="background-color:#ECDBBA;">회원 탈퇴</button>

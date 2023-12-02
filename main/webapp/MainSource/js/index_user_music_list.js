@@ -33,7 +33,7 @@ function getUserMusicList(userId,listName) {
     .catch(error => console.error('Error:', error));
 }
 document.addEventListener('userInfoLoaded', function() {
-	console.log(userInfo);
+	
     if(userInfo !=null){
 		searchUserMusicList(userInfo.id);
 		
@@ -113,7 +113,7 @@ function createMusicListItem(music) {
 
     return listItem;
 }
-// 검색 !!!!!!
+
 function searchUserMusicList(userId) {
     fetch(`/UserMusicListSearchCon?userId=${userId}`)
     .then(response => response.json())
@@ -125,7 +125,7 @@ function searchUserMusicList(userId) {
 }
 
 
-// 업데이트!!!!!!!
+
 function updateCurrentListName() {
     const currentNameElement = document.getElementById('music-user-list-currentname');
     if (listNames.length > 0) {
@@ -139,26 +139,24 @@ function updateCurrentListName() {
 		currentListName=firstListName;
 		listNames.push("첫번째 리스트");
 	}
-	console.log(listNames.length);
+	
     getUserMusicList(userInfo.id,currentListName);
 };
 
-// 삭제!!!!!!
+
 function deleteMusicFromList(userId, listName, musicId) {
    
     fetch(`/UserMusicListRemoveCon?userId=${userId}&listName=${listName}&musicId=${musicId}`, {
         method: 'GET'
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        
+       
+        mainsectionFetch(currentContentUrl);
         getUserMusicList(userId, listName);
     })
     .catch(error => console.error('Error:', error));
 }
-// 삽입 !!!!!!!!!!
+
 function insertToMusicList(musicId) {
 
 	
@@ -173,6 +171,7 @@ function insertToMusicList(musicId) {
     .then(data => {
         if(data.success) {
             alert("음악이 리스트에 추가되었습니다.");
+            mainsectionFetch(currentContentUrl);
             updateCurrentListName();
            
         } else {
@@ -196,6 +195,7 @@ function createMusicListName(listName) {
 	
 	
 	currentListIndex = listNames.indexOf(listName);
+	mainsectionFetch(currentContentUrl);
 	updateCurrentListName(); 
 	
 	

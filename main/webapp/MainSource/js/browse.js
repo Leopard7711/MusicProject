@@ -7,12 +7,40 @@ function displaySearchResults(data) {
         alert('검색 결과가 없습니다.');
     } else {
         data.forEach(music => {
-            const musicElement = createMusicElement(music);
+            const musicElement = createBrowseMusicElement(music);
             resultsContainer.appendChild(musicElement);
         });
     }
 }
 
+function createBrowseMusicElement(music) {
+        const colDiv = document.createElement('div');
+        colDiv.className = 'album col-md-3 d-flex flex-column align-items-center';
+
+		colDiv.addEventListener('click', () => {
+       		insertToMusicList(music.id); // 여기서 음악을 리스트에 추가하는 함수 호출
+   		});
+
+        const img = document.createElement('img');
+        img.src = "music/image/"+music.url+".jpg";
+        
+        colDiv.appendChild(img);
+
+        const textContainer = document.createElement('div');
+        textContainer.className = 'album-text-container';
+
+        const title = document.createElement('h4');
+        title.textContent = music.title;
+        textContainer.appendChild(title);
+
+        const artist = document.createElement('p');
+        artist.textContent = music.artist;
+        textContainer.appendChild(artist);
+
+        colDiv.appendChild(textContainer);
+
+        return colDiv;
+    }
 
 function initBrowse(){
 	document.getElementById('search-form').addEventListener('submit', function(e) {

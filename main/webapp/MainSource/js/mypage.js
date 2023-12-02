@@ -14,7 +14,7 @@ function initMyPage() {
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data.uploadStatus);
+                    
                     if (data.uploadStatus === 'success') {
                         
                         updateUserProfilePicture();
@@ -71,10 +71,10 @@ function initMyPage() {
 			    .then(info => {
 			        if (info.result === "success") {
 			            userInfo = info;
-			            console.log(userInfo.password);
+			            
 			            alert('비밀번호가 성공적으로 변경되었습니다.');
 			        } else {
-			            console.log("사용자 정보를 가져오는데 실패했습니다.");
+			            
 			        }
 			        InitUserSection();
 			      
@@ -111,7 +111,7 @@ function initMyPage() {
                 if(data.status === 'success') {
                     alert('회원 탈퇴가 완료되었습니다.');
                     window.location.href = 'index.jsp';
-                    // 로그아웃 처리 또는 메인 페이지로 리디렉션
+                    
                 } else {
                     alert('탈퇴 처리 중 오류가 발생했습니다: ' + data.message);
                 }
