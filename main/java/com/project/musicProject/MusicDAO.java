@@ -69,28 +69,15 @@ public class MusicDAO {
         return music;
     }
     
-    public List<MusicDTO> searchMusic(String searchQuery, String searchType) {
+    public List<MusicDTO> searchMusic(String searchName, String searchType) {
     	conn=JDBCUtil.getConnection();
         List<MusicDTO> musicList = new ArrayList<>();
-        String sql = "";
+        
 
-        switch (searchType) {
-            case "title":
-                sql = "SELECT * FROM music_data WHERE title LIKE ?";
-                break;
-            case "album":
-                sql = "SELECT * FROM music_data WHERE album LIKE ?";
-                break;
-            case "artist":
-                sql = "SELECT * FROM music_data WHERE artist LIKE ?";
-                break;
-            default:
-                // 오류 처리 또는 기본 쿼리 설정
-                return musicList;
-        }
+        String sql = "SELECT * FROM music_data WHERE " + searchType+ " LIKE ?";
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "%" + searchQuery + "%");
+            pstmt.setString(1, "%" + searchName + "%");
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) {
@@ -111,6 +98,7 @@ public class MusicDAO {
 
         return musicList;
     }
+    
     
     
     public List<MusicDTO> getMusicByIds(List<Integer> ids) {
@@ -148,4 +136,5 @@ public class MusicDAO {
 
         return musicList;
     }
+    
 }

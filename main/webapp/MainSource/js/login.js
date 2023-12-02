@@ -130,7 +130,7 @@ function login() {
     const id = document.getElementById("id-input").value;
     const password = document.getElementById("password-input").value;
 
-    // JSON 형식으로 데이터 생성
+    
     const data = JSON.stringify({
         id: id,
         password: password
@@ -141,9 +141,9 @@ function login() {
     fetch('/LoginCon', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json' // 헤더에 Content-Type 설정
+            'Content-Type': 'application/json' 
         },
-        body: data // JSON 형식의 데이터 사용
+        body: data 
         
     })
     .then(response => {
@@ -173,7 +173,7 @@ function join(){
 	const _id = document.getElementById("id-input").value;
     const _password = document.getElementById("password-input").value;
 
-    // JSON 형식으로 데이터 생성
+   
     const data = JSON.stringify({
 		email:_email,
         id: _id,
@@ -183,9 +183,9 @@ function join(){
     fetch('/JoinCon', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json' // 헤더에 Content-Type 설정
+            'Content-Type': 'application/json' 
         },
-        body: data // JSON 형식의 데이터 사용
+        body: data 
         
     })
     .then(response => {

@@ -4,13 +4,13 @@ function fetchMusicList() {
         .then(response => response.json())
         .then(data => {
             const albumContainer = document.querySelector('.album-container');
-            let rowDiv = createRowDiv(); // 첫 번째 row 생성
+            let rowDiv = createRowDiv(); 
 
             data.forEach((music, index) => {
-                // 4개의 항목이 있을 때마다 새로운 row 생성
+                
                 if (index > 0 && index % 4 === 0) {
-                    albumContainer.appendChild(rowDiv); // 현재 row를 container에 추가
-                    rowDiv = createRowDiv(); // 새로운 row 생성
+                    albumContainer.appendChild(rowDiv); 
+                    rowDiv = createRowDiv();
                 }
 
                 const musicElement = createMusicElement(music);

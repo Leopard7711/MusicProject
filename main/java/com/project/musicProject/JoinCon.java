@@ -28,7 +28,7 @@ public class JoinCon extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        // JSON 데이터 읽기
+     
         StringBuilder jsonBuffer = new StringBuilder();
         String line;
         BufferedReader reader = request.getReader();

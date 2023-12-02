@@ -56,7 +56,7 @@ public class MemberImageInsertCon extends HttpServlet {
             } else {
                 String newFileName = user.getId() + ".jpg";
                 
-               // 웹 애플리케이션의 컨텍스트 루트 경로
+               
                 
                 String uploadPath = getServletContext().getRealPath("/") ;
                

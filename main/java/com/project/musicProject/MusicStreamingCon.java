@@ -34,10 +34,10 @@ public class MusicStreamingCon extends HttpServlet {
 
 	        if (music != null) {
 	        	System.out.print(request.getContextPath());
-	            // 클라이언트에 반환할 스트리밍 URL 구성
+	           
 	            String streamingUrl = "music/mp3/" + music.getUrl() + ".mp3";
 	            
-	            // MusicDTO 데이터를 JSONObject에 추가
+	            
 	            JSONObject musicJson = new JSONObject();
 	            musicJson.put("id", music.getId());
 	            musicJson.put("title", music.getTitle());
@@ -45,15 +45,15 @@ public class MusicStreamingCon extends HttpServlet {
 	            musicJson.put("album", music.getAlbum());
 	            musicJson.put("genre", music.getGenre());
 	            musicJson.put("url", music.getUrl());
-	            // ... 기타 필요한 MusicDTO 필드를 추가 ...
-	            musicJson.put("streamingUrl", streamingUrl); // 스트리밍 URL도 포함
+	            
+	            musicJson.put("streamingUrl", streamingUrl); 
 
-	            // JSON 객체를 문자열로 변환하여 클라이언트에 응답
+	            
 	            response.setContentType("application/json");
 	            response.setCharacterEncoding("UTF-8");
 	            response.getWriter().write(musicJson.toString());
 	        } else {
-	            // 음악을 찾을 수 없는 경우
+	            
 	            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 	            response.getWriter().write("음악을 찾을 수 없습니다.");
 	        }

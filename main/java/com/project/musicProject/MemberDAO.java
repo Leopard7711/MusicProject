@@ -157,6 +157,26 @@ public class MemberDAO {
         }
     }
     
-	
+    public boolean deleteMember(String id) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = JDBCUtil.getConnection();
+            String deleteQuery = "DELETE FROM user_account WHERE id = ?";
+            
+            pstmt = conn.prepareStatement(deleteQuery);
+            pstmt.setString(1, id);
+
+            int affectedRows = pstmt.executeUpdate();
+
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            System.out.println("SQLException: " + e);
+            return false;
+        } finally {
+            JDBCUtil.close(null, pstmt, conn);
+        }
+    }
 
 }

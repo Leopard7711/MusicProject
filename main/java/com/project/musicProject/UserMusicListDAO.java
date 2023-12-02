@@ -10,11 +10,11 @@ import common.JDBCUtil;
 public class UserMusicListDAO {
     private Connection conn;
 
-    // 사용자 음악 목록에 음악 추가
+    
     public boolean insertUserMusicList(String userId,String listName, int musicId) {
         conn = JDBCUtil.getConnection();
         
-        if(serchUserMusicList(userId,listName,musicId)) {
+        if(searchUserMusicList(userId,listName,musicId)) {
         	return false;
         }
         
@@ -56,7 +56,7 @@ public class UserMusicListDAO {
         return musicDao.getMusicByIds(musicIds);
     }
     
-    public boolean serchUserMusicList(String userId,String listName,int musicId) {
+    public boolean searchUserMusicList(String userId,String listName,int musicId) {
         conn = JDBCUtil.getConnection();
         
         String sql = "SELECT musicId FROM user_music_list WHERE userId = ? and listName = ? and musicId = ?";
@@ -88,7 +88,7 @@ public class UserMusicListDAO {
             conn = JDBCUtil.getConnection();
             String sql = "SELECT DISTINCT listName FROM user_music_list WHERE userId = ?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, userId); // MemberDTO에서 userId 가져오기
+            pstmt.setString(1, userId); 
 
             rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -115,7 +115,28 @@ public class UserMusicListDAO {
             pstmt.setInt(3, musicId);
 
             int rowsAffected = pstmt.executeUpdate();
-            return rowsAffected > 0; // 삭제된 행이 있으면 true 반환
+            return rowsAffected > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            JDBCUtil.close(null, pstmt, conn);
+        }
+    }
+    
+    public boolean clearUserMusicList(String userId) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = JDBCUtil.getConnection();
+            String sql = "DELETE FROM user_music_list WHERE userId = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userId);
+    
+
+            int rowsAffected = pstmt.executeUpdate();
+            return rowsAffected > 0; 
         } catch (Exception e) {
             e.printStackTrace();
             return false;

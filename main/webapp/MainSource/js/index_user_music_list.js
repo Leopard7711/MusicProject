@@ -14,7 +14,7 @@ function getUserMusicList(userId,listName) {
     .then(data => {
         const musicList = document.getElementById('music-user-list');
         musicList.innerHTML = ''; // 기존 목록 초기화
-
+		
         data.forEach(music => {
             const listItem = createMusicListItem(music);        
             musicList.appendChild(listItem); // 음악 항목을 리스트에 추가
@@ -36,6 +36,7 @@ document.addEventListener('userInfoLoaded', function() {
 	console.log(userInfo);
     if(userInfo !=null){
 		searchUserMusicList(userInfo.id);
+		
 		getUserMusicList(userInfo.id,currentListName);
 	}
     
@@ -47,7 +48,7 @@ document.addEventListener('userInfoLoaded', function() {
     }
 	});
 	
-	// '>' 버튼 클릭 이벤트
+	
 	document.querySelector('.fa-caret-right').addEventListener('click', () => {
 	    if (currentListIndex < listNames.length - 1) {
 	        currentListIndex++;
@@ -74,7 +75,7 @@ function createMusicListItem(music) {
     listItem.className = 'music-user-list-item d-flex align-items-center';
  
 	listItem.dataset.music = JSON.stringify(music);;
-    // 재생 아이콘 생성
+
     
     const playIcon = document.createElement('i');
     playIcon.className = 'fa-solid fa-play';
@@ -86,23 +87,23 @@ function createMusicListItem(music) {
     listItem.appendChild(playIcon);
     
     
-    // 텍스트 컨테이너 생성
+
     const textContainer = document.createElement('div');
     textContainer.className = 'text-center';
 
-    // 곡 제목
+ 
     const title = document.createElement('p');
     title.textContent = music.title;
     textContainer.appendChild(title);
 
-    // 아티스트 이름
+  
     const artist = document.createElement('p');
     artist.textContent = music.artist;
     textContainer.appendChild(artist);
 
     listItem.appendChild(textContainer);
 
-    // 삭제 아이콘 생성
+
     const deleteIcon = document.createElement('i');
     deleteIcon.className = 'fa-solid fa-xmark';
     deleteIcon.addEventListener('click',function(){
@@ -130,18 +131,21 @@ function updateCurrentListName() {
     if (listNames.length > 0) {
         currentNameElement.textContent = listNames[currentListIndex];
         currentListName= listNames[currentListIndex];
+        
     }
     else{
 		firstListName="첫번째 리스트";
 		currentNameElement.textContent= firstListName;
 		currentListName=firstListName;
+		listNames.push("첫번째 리스트");
 	}
+	console.log(listNames.length);
     getUserMusicList(userInfo.id,currentListName);
 };
 
 // 삭제!!!!!!
 function deleteMusicFromList(userId, listName, musicId) {
-    // 서버에 삭제 요청을 보내는 fetch 호출
+   
     fetch(`/UserMusicListRemoveCon?userId=${userId}&listName=${listName}&musicId=${musicId}`, {
         method: 'GET'
     })
@@ -149,13 +153,14 @@ function deleteMusicFromList(userId, listName, musicId) {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        // 리스트에서 항목 삭제
+        
         getUserMusicList(userId, listName);
     })
     .catch(error => console.error('Error:', error));
 }
 // 삽입 !!!!!!!!!!
 function insertToMusicList(musicId) {
+
 	
 	if(!checkUserInfo()){
 		return false;
@@ -169,7 +174,7 @@ function insertToMusicList(musicId) {
         if(data.success) {
             alert("음악이 리스트에 추가되었습니다.");
             updateCurrentListName();
-            // 필요한 경우 UI 업데이트
+           
         } else {
             alert("음악이 리스트에 이미 존재합니다.");
         }

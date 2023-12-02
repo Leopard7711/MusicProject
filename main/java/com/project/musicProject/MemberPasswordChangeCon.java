@@ -16,20 +16,6 @@ public class MemberPasswordChangeCon extends HttpServlet {
 	        response.setCharacterEncoding("UTF-8");
 
 	        
-//	        Part newPasswordPart = request.getPart("newPassword");
-//	        String newPassword = null;
-//	        
-//	        if (newPasswordPart != null) {
-//	            
-//	            InputStream inputStream = newPasswordPart.getInputStream();
-//	            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-//	            byte[] buffer = new byte[1024];
-//	            int bytesRead;
-//	            while ((bytesRead = inputStream.read(buffer)) != -1) {
-//	                outputStream.write(buffer, 0, bytesRead);
-//	            }
-//	            newPassword = outputStream.toString(StandardCharsets.UTF_8.name());
-//	        }
 	        String newPassword= request.getParameter("newPassword");
 	        
 	        

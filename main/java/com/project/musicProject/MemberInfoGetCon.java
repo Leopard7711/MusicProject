@@ -45,27 +45,3 @@ public class MemberInfoGetCon extends HttpServlet {
         response.getWriter().write(json.toString());
     }
 }
-//protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//    
-//    HttpSession session = request.getSession();
-//    String userId = request.getParameter("userId");
-//    MemberDAO memberDao = new MemberDAO();
-//    MemberDTO dto = memberDao.memberFind(userId);
-//
-//    JSONObject json = new JSONObject();
-//    if (dto != null) {
-//        session.setAttribute("MemberDTO", dto);
-//
-//        json.put("id", dto.getId());
-//        json.put("email", dto.getEmail());
-//        json.put("password", dto.getPassword());
-//        json.put("datetime", dto.getDatetime());
-//        json.put("result", "success");
-//    } else {
-//        json.put("result", "fail");
-//    }
-//
-//    response.setContentType("application/json");
-//    response.setCharacterEncoding("UTF-8");
-//    response.getWriter().write(json.toString());
-//}

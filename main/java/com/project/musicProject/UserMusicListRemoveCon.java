@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-// 필요한 추가 import 문
 
 @WebServlet("/UserMusicListRemoveCon")
 public class UserMusicListRemoveCon extends HttpServlet {
@@ -33,6 +32,5 @@ public class UserMusicListRemoveCon extends HttpServlet {
         }
     }
 
-    
-    // 필요한 추가 메서드
+   
 }

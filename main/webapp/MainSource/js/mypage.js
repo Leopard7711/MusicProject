@@ -16,7 +16,7 @@ function initMyPage() {
                 .then(data => {
                     console.log(data.uploadStatus);
                     if (data.uploadStatus === 'success') {
-                        // 파일 업로드 성공 시, 사용자 프로필 사진 업데이트
+                        
                         updateUserProfilePicture();
                         alert('사진이 성공적으로 업로드되었습니다.');
                     } else {
@@ -32,7 +32,7 @@ function initMyPage() {
     });
     
     
-    document.getElementById("datetime").innerHTML = userInfo.datetime;
+    document.getElementById("datetime").innerHTML = "가입 날짜 : "+userInfo.datetime;
     
     document.getElementById('password-change-form').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -96,6 +96,66 @@ function initMyPage() {
 	    });
     });
     
+	document.getElementById('delete-account-button').addEventListener('click', function() {
+    
+    if (confirm('정말로 탈퇴하시겠습니까?')) {
+        
+        if (confirm('회원 탈퇴 후에는 복구할 수 없습니다. 계속하시겠습니까?')) {
+            
+            fetch('/MemberDeleteCon', {
+                method: 'POST',
+                
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    alert('회원 탈퇴가 완료되었습니다.');
+                    window.location.href = 'index.jsp';
+                    // 로그아웃 처리 또는 메인 페이지로 리디렉션
+                } else {
+                    alert('탈퇴 처리 중 오류가 발생했습니다: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('탈퇴 처리 중 오류가 발생했습니다.');
+            });
+        }
+    }
+	});
+
+
+
+	document.getElementById('clear-list').addEventListener('click', function() {
+	    if (confirm('정말로 음악 목록을 초기화하시겠습니까?')) {
+	        
+	        var listName = "exampleListName"; 
+	
+	        fetch('/UserMusicListClearCon', {
+	            method: 'POST',
+	            headers: {
+	                'Content-Type': 'application/x-www-form-urlencoded'
+	            },
+	            body: 'listName=' + encodeURIComponent(listName)
+	        })
+	        .then(response => response.json())
+	        .then(data => {
+	            if(data.status === 'success') {
+	                alert('음악 목록이 성공적으로 초기화되었습니다.');
+	                window.location.href = 'index.jsp';
+	                
+	            } else {
+	                alert('목록 초기화 실패');
+	            }
+	        })
+	        .catch(error => {
+	            console.error('Error:', error);
+	            alert('목록 초기화 중 오류가 발생했습니다.');
+	        });
+	    }
+	});
+
+
 
 }
 

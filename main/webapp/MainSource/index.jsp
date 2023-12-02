@@ -15,13 +15,16 @@
     <link rel="stylesheet" href="css/login_style.css">
     <link rel="stylesheet" href="css/join_style.css">
     <link rel="stylesheet" href="css/mypage_style.css">
+    <link rel="stylesheet" href="css/friend_style.css">
     <script src="https://kit.fontawesome.com/19f16a6e82.js"></script>
     <script src="js/index.js"></script>
     <script src="js/mypage.js"></script>
     <script src="js/user.js"></script>
     <script src="js/index_user_music_list.js"></script>
 	<script src="js/index_musicplayer.js"></script>
-	
+	<script src="js/browse.js"></script>
+	<script src="js/playlist.js"></script>
+	<script src="js/friend.js"></script>
 	<script src="js/login.js"></script>
 	<script src="js/home.js"></script>
 </head>
@@ -74,25 +77,21 @@
                 </div>
                 
                 <ul class="nav flex-column sidebar-menu  float-none">
-                    <li class="nav-item">
+                    <li class="nav-item" id='home'>
                         <i class="fa-solid fa-house active"></i>
-                        <a class="sidebar-menu-list nav-link active" id='home-button' href="home.jsp">Home</a>
+                        <a class="sidebar-menu-list nav-link active" id='home-button' href="home.jsp" >Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item"  id='browse'>
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <a class="sidebar-menu-list nav-link" href="browse.jsp">Browse</a>
+                        <a class="sidebar-menu-list nav-link" href="browse.jsp" >Browse</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item"  id='playlist'>
                         <i class="fa-solid fa-list"></i>
-                        <a class="sidebar-menu-list  nav-link" href="#">Playlists</a>
+                        <a class="sidebar-menu-list  nav-link" href="playlist.jsp">Playlists</a>
                     </li>
-                    <li class="nav-item">
-                        <i class="fa-solid fa-headset"></i>
-                        <a class="sidebar-menu-list nav-link" href="#">Live</a>
-                    </li>
-                    <li class="nav-item">
+                    <li class="nav-item"  id='friend'>
                         <i class="fa-solid fa-user-group"></i>
-                        <a class="sidebar-menu-list nav-link" href="#">Friends</a>
+                        <a class="sidebar-menu-list nav-link" href="friend.jsp">Friends</a>
                     </li>
                 </ul>
                 
