@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class FriendshipApplyCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	 private FriendshipDAO dao = new FriendshipDAO();
    
 
 	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 	FriendshipDAO dao = new FriendshipDAO();
 	        response.setContentType("application/json");
 	        String userId = request.getParameter("userId");
 	        String friendId = request.getParameter("friendId");

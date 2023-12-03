@@ -16,10 +16,11 @@ import org.json.JSONObject;
 @WebServlet("/FriendshipSearchCon")
 public class FriendshipSearchCon extends HttpServlet {
 	
-	private FriendshipDAO dao = new FriendshipDAO();
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FriendshipDAO dao = new FriendshipDAO();
         response.setContentType("application/json");
         String userId = request.getParameter("userId");
         JSONObject jsonResponse = new JSONObject();

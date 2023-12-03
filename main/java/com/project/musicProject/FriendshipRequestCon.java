@@ -12,10 +12,10 @@ import java.util.ArrayList;
 @WebServlet("/FriendshipRequestCon")
 public class FriendshipRequestCon extends HttpServlet {
 
-    private FriendshipDAO dao = new FriendshipDAO();
-
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	FriendshipDAO dao = new FriendshipDAO();
         response.setContentType("application/json");
         String action = request.getParameter("action");
         String userId = request.getParameter("userId");

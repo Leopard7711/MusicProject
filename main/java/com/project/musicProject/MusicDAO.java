@@ -68,7 +68,7 @@ public class MusicDAO {
                     music.setUrl(rs.getString("url"));
                     
                 }
-                JDBCUtil.close(rs, pstmt, conn);
+                
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -101,7 +101,7 @@ public class MusicDAO {
 
                     musicList.add(music);
                 }
-                JDBCUtil.close(rs, pstmt, conn);
+                
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -142,7 +142,7 @@ public class MusicDAO {
                     musicList.add(music);
                     
                 }
-                JDBCUtil.close(rs, pstmt, conn);
+                
             }
         } catch (Exception e) {
             e.printStackTrace();
