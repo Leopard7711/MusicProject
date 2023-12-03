@@ -16,8 +16,6 @@ import org.json.JSONObject;
 public class FriendshipApplyCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-   
-
 	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 	FriendshipDAO dao = new FriendshipDAO();
 	        response.setContentType("application/json");
