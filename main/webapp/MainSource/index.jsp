@@ -27,6 +27,7 @@
 	<script src="js/friend.js"></script>
 	<script src="js/login.js"></script>
 	<script src="js/home.js"></script>
+	<script src="js/admin.js"></script>
 </head>
 
 

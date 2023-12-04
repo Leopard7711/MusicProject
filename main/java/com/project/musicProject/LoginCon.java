@@ -45,7 +45,6 @@ public class LoginCon extends HttpServlet {
         String id = jsonObj.getString("id");
         String password = jsonObj.getString("password");
 
-        System.out.print(id + password);
         
         
         

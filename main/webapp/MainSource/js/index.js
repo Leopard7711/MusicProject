@@ -136,6 +136,9 @@ fetch(contentUrl)
 				initFriend();
 				menuIdName='friend'
 				break;
+			case 'admin.jsp':
+				initAdmin();
+				break;
 		}
         changeMenuColor(menuIdName);
     })

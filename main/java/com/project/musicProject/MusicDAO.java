@@ -151,4 +151,25 @@ public class MusicDAO {
         return musicList;
     }
     
+    public boolean insertMusic(MusicDTO music) {
+        String sql = "INSERT INTO music_data (title, artist, album, genre, url) VALUES (?, ?, ?, ?, ?)";
+
+        try (
+            Connection conn = JDBCUtil.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+        ) {
+            pstmt.setString(1, music.getTitle());
+            pstmt.setString(2, music.getArtist());
+            pstmt.setString(3, music.getAlbum());
+            pstmt.setString(4, music.getGenre());
+            pstmt.setString(5, music.getUrl());
+
+            int rowsAffected = pstmt.executeUpdate();
+            return rowsAffected > 0; // 삽입 성공 시 true 반환
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false; // 예외 발생 시 false 반환
+        }
+    }
+    
 }
