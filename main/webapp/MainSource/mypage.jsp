@@ -21,8 +21,8 @@
                 <button type="submit" class="btn mt-2" style="color:white;">비밀번호 변경</button>
             </form>
 			
-            <button id="delete-account-button" class="btn mt-5" style="background-color:#ECDBBA;">회원 탈퇴</button>
-            <button id="clear-list" class="btn mt-5 ms-2" style="background-color:#ECDBBA;">리스트 초기화</button>
+            <button id="delete-account-button" class="btn mt-5" style="background-color:#ECDBBA;color:black;">회원 탈퇴</button>
+            <button id="clear-list" class="btn mt-5 ms-2" style="background-color:#ECDBBA;color:black;">리스트 초기화</button>
        
     </div>
 
