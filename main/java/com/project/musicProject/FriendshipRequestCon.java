@@ -15,22 +15,36 @@ public class FriendshipRequestCon extends HttpServlet {
    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	FriendshipDAO dao = new FriendshipDAO();
+    	MemberDAO memDao = new MemberDAO();
+    	FriendshipDAO FriendDao = new FriendshipDAO();
         response.setContentType("application/json");
         String action = request.getParameter("action");
         String userId = request.getParameter("userId");
         String friendId = request.getParameter("friendId");
         JSONObject jsonResponse = new JSONObject();
-        System.out.println(action+userId+friendId);
+
+        
+        boolean exist= false;
+        
         try {
             if ("send".equals(action)) {
-                boolean success = dao.addFriendRequest(userId, friendId);
-                jsonResponse.put("success", success);
+            	MemberDTO findMember= memDao.memberFind(friendId);
+            	if(findMember.getId()==null) {
+            		exist = true;
+            	}
+            	else {
+            		boolean success = FriendDao.addFriendRequest(userId, friendId);
+            		jsonResponse.put("success", success);
+            	}
+            	
+                
             } else if ("delete".equals(action)) {
                
-                boolean success = dao.removeFriendRequest(userId, friendId);
+                boolean success = FriendDao.removeFriendRequest(userId, friendId);
                 jsonResponse.put("success", success);
             }
+            
+            jsonResponse.put("exist", exist);
             
         } catch (SQLException e) {
             jsonResponse.put("error", e.getMessage());

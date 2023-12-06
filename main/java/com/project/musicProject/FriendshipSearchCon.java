@@ -24,7 +24,7 @@ public class FriendshipSearchCon extends HttpServlet {
         response.setContentType("application/json");
         String userId = request.getParameter("userId");
         JSONObject jsonResponse = new JSONObject();
-        System.out.println("FriendshipSearchCon->"+userId);
+       
         	
         try {
             List<FriendshipDTO> friendRequests = dao.searchFriendAndRequests(userId);

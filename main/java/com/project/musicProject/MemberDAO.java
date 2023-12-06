@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import common.JDBCUtil;
 
@@ -91,14 +93,6 @@ public class MemberDAO {
         }
         
         	
-         
-            
-         	
-      
-            
-            
-
-       
         
     }		
     public MemberDTO memberFind(String id) {
@@ -114,12 +108,14 @@ public class MemberDAO {
             MemberDTO dto = new MemberDTO();
             try(ResultSet rs = pstmt.executeQuery();){
             	
-            	loginCon = rs.next();
             	
-                dto.setEmail( rs.getString("email"));
-                dto.setId( rs.getString("id"));
-                dto.setPassword( rs.getString("password"));
-                dto.setDatetime(rs.getTimestamp("datetime"));
+            	if(rs.next()) {
+            		dto.setEmail( rs.getString("email"));
+	                dto.setId( rs.getString("id"));
+	                dto.setPassword( rs.getString("password"));
+	                dto.setDatetime(rs.getTimestamp("datetime"));
+            	}
+                
             }
             
             
@@ -130,6 +126,32 @@ public class MemberDAO {
         }
         
     }	
+    
+    
+    public List<MemberDTO> memberFindList() {
+        List<MemberDTO> members = new ArrayList<>();
+        String strQuery = "SELECT * FROM user_account";
+
+        try (Connection conn = JDBCUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(strQuery);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                MemberDTO dto = new MemberDTO();
+                dto.setId(rs.getString("id"));
+                dto.setEmail(rs.getString("email"));
+                dto.setPassword(rs.getString("password")); 
+                dto.setDatetime(rs.getTimestamp("datetime"));
+                members.add(dto);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("SQLException: " + ex);
+            
+        }
+
+        return members;
+    }
     public boolean changePassword(String id, String newPassword) {
         
         String updateQuery = "UPDATE user_account SET password = ? WHERE id = ?";

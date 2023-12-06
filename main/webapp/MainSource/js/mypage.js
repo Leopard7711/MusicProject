@@ -97,21 +97,25 @@ function initMyPage() {
     });
     
 	document.getElementById('delete-account-button').addEventListener('click', function() {
-    
     if (confirm('정말로 탈퇴하시겠습니까?')) {
-        
         if (confirm('회원 탈퇴 후에는 복구할 수 없습니다. 계속하시겠습니까?')) {
-            
+
+            // Prepare form data
+            var formData = new URLSearchParams();
+            formData.append('userId', userInfo.id); 
+
             fetch('/MemberDeleteCon', {
                 method: 'POST',
-                
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formData
             })
             .then(response => response.json())
             .then(data => {
-                if(data.status === 'success') {
+                if (data.status === 'success') {
                     alert('회원 탈퇴가 완료되었습니다.');
-                    window.location.href = 'index.jsp';
-                    
+                     window.location.href = '/LogoutCon'
                 } else {
                     alert('탈퇴 처리 중 오류가 발생했습니다: ' + data.message);
                 }
@@ -122,7 +126,7 @@ function initMyPage() {
             });
         }
     }
-	});
+});
 
 
 

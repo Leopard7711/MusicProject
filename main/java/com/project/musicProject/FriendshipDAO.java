@@ -180,4 +180,14 @@ public class FriendshipDAO {
         }
         return false;
     }
+    
+    public void deleteAllFriendshipsOfMember(String memberId) throws SQLException {
+        try (Connection conn = JDBCUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(
+                 "DELETE FROM friendship WHERE userId = ? OR friendId = ?");) {
+            pstmt.setString(1, memberId);
+            pstmt.setString(2, memberId);
+            pstmt.executeUpdate();
+        }
+    }
 }

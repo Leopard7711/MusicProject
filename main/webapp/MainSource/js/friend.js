@@ -131,7 +131,11 @@ function sendFriendRequest() {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success) {
+		if(data.exist){
+			alert('존재하지 않는 유저입니다');
+		}
+		
+        else if (data.success) {
             alert('친구요청이 전송되었습니다');
             
         } else {

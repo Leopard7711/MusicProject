@@ -1,6 +1,8 @@
 package com.project.musicProject;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,19 +18,27 @@ public class MemberDeleteCon extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       
 
-        HttpSession session = request.getSession();
-        MemberDTO user = (MemberDTO) session.getAttribute("MemberDTO");
-
+		String userId= request.getParameter("userId");
         JSONObject jsonResponse = new JSONObject();
 
-        if (user != null) {
+        if (userId != null) {
             MemberDAO dao = new MemberDAO();
-            boolean success = dao.deleteMember(user.getId());
-
+            boolean success = dao.deleteMember(userId);
+            
+            FriendshipDAO friendDao= new FriendshipDAO();
+            UserMusicListDAO userMusicDao = new UserMusicListDAO();
+            
+            try {
+				friendDao.deleteAllFriendshipsOfMember(userId);
+				userMusicDao.clearUserMusicList(userId);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+            
             if (success) {
                 jsonResponse.put("status", "success");
                 jsonResponse.put("message", "Account deleted successfully");
-                session.invalidate(); // 사용자 세션 무효화
+                
             } else {
                 jsonResponse.put("status", "fail");
                 jsonResponse.put("message", "Account deletion failed");

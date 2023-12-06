@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="admin my-page pt-5 ps-5 pe-5">
+	<div class="admin my-page p-5">
 		<h2 class ="mb-3">음악 추가</h2>
 		<div id="music-upload-form">
                 <h4>MP3 파일</h4><input type="file" name="music" accept=".mp3*" class="form-control mb-2" style="width: 30vh;">
@@ -33,15 +33,9 @@
 		            <th style="width: 10%;">REMOVE</th>
 		        </tr>
 		    </thead>
-		    <tbody>
-		        <tr class="text-center">
-		            <td>-</td>
-		            <td>-</td>
-		            <td>-</td>
-		            <td><button class="btn btn-danger">삭제</button></td>
-		        </tr>
-		        <!-- 다른 행들도 이와 같은 방식으로 추가 -->
-		    </tbody>
+		    <tbody id="userList">
+        
+   			 </tbody>
 		</table>
 		
 	</div>

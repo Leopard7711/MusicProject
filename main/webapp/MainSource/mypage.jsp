@@ -6,7 +6,7 @@
     <!-- 필요한 CSS 및 JavaScript 파일을 여기에 포함시킬 수 있습니다 -->
 </head>
 <body>
-    <div class="my-page pt-5 ps-5 pe-5">
+    <div class="my-page p-5">
         <div id="upload-form">
                 <input type="file" name="photo" accept="image/*" class="form-control mb-2" style="width: 30vh;">
                 <button id="upload-button" class="btn mt-2" style="color:white;">사진 업로드</button>

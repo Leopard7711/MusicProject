@@ -63,17 +63,62 @@ function initAdmin(){
             console.error('Error:', error);
         });
     });
+    fetchUsers();
 }
 function areInputsFilled() {
-        // 모든 필요한 입력 필드 선택
+        
         const inputs = document.querySelectorAll('#upload-form input[type="text"], #upload-form input[type="file"]');
 
-        // 모든 입력 필드가 채워져 있는지 확인
+        
         for (let input of inputs) {
             if (input.value === '') {
-                return false; // 채워지지 않은 필드가 있으면 false 반환
+                return false; 
             }
         }
-        return true; // 모든 필드가 채워져 있으면 true 반환
+        return true; 
     }
     
+    
+function fetchUsers() {
+        fetch('/MemberInfoListGetCon') 
+            .then(response => response.json())
+            .then(data => {
+                const userListEl = document.getElementById('userList');
+                userListEl.innerHTML = '';
+                data.forEach(user => {
+                    userListEl.innerHTML += `
+                        <tr class="text-center">
+                            <td>${user.id}</td>
+                            <td>${user.email}</td>
+                            <td>${user.joinDate}</td>
+                            <td><button class="btn btn-danger" onclick="deleteUser('${user.id}')">삭제</button></td>
+                        </tr>
+                    `;
+                });
+            });
+    }
+
+   
+function deleteUser(id) {
+    var formData = new URLSearchParams();
+    formData.append('userId', id);
+
+    fetch('/MemberDeleteCon', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded' 
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('계정이 삭제되었습니다');
+        if (data.status === 'success') {
+            fetchUsers(); 
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('삭제 실패');
+    });
+};
