@@ -170,8 +170,10 @@ function insertToMusicList(musicId) {
     .then(response => response.json())
     .then(data => {
         if(data.success) {
-            alert("음악이 리스트에 추가되었습니다.");
-            mainsectionFetch(currentContentUrl);
+            alert("음악이 리스트에 추가되었습니다.");  
+            if(userInfo.id==='admin'){
+				mainsectionFetch(currentContentUrl); 
+			}
             updateCurrentListName();
            
         } else {

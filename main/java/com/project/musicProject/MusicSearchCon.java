@@ -25,11 +25,7 @@ public class MusicSearchCon extends HttpServlet {
 
         JSONObject jsonObj = new JSONObject(jsonBuilder.toString());
         String category = jsonObj.getString("category");
-        String keyword = jsonObj.getString("keyword");
-        System.out.println(category+keyword);
-        
-        
-        
+        String keyword = jsonObj.getString("keyword");       
         
         MusicDAO musicDao = new MusicDAO();
         List<MusicDTO> searchResults = musicDao.searchMusic(keyword, category);
