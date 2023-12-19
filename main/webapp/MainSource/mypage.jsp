@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>My Page</title>
-    <!-- 필요한 CSS 및 JavaScript 파일을 여기에 포함시킬 수 있습니다 -->
+    
 </head>
 <body>
     <div class="my-page p-5">
