@@ -7,7 +7,7 @@
 <head>
 	
     <meta charset="UTF-8">
-    <title>My Bootstrap Page</title>
+    <title>Music Streaming</title>
     <base href="/MainSource/">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index_style.css">
